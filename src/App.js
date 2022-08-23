@@ -1,10 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import LogIn from './components/LogIn';
+import SignUp from './components/SignUp';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
+    <div style={{backgroundColor:'#F2F7F7'}}>
+      <Home/>
     </div>
   );
 }
