@@ -11,6 +11,7 @@ function Home(){
                     <Button style={{marginBottom:'2%', border:'none', backgroundColor:"#51A3A3"}}><Link to="/signup" style={{color:'white', textDecoration:'none'}}>Create an account</Link></Button>
                     <h5 style={{textAlign:'center', borderBottom:'1px solid gray', borderTop:'1px solid gray', width:'50%', margin:'5% 0 5% 0', padding:'3%'}}>or</h5>
                     <Button style={{border:"none", backgroundColor:'#51A3A3', width:'70%'}} ><Link to="/login" style={{color:'white', textDecoration:'none'}}>Log In</Link></Button>
+                    <Link to="/myprofile" >Temporal myprofile</Link>
                 </div>
 
             </div>
