@@ -2,7 +2,7 @@ import { Card, Form, FormGroup, Button } from 'react-bootstrap'
 
 function LogIn(){
     return(
-        <div style={{width:'26rem'}}>
+        <div style={{width:'100%', height:'100vh', display:'flex', justifyContent:'center', alignItems:'center'}}>
             <Card style={{border:'1px solid #51A3A3', height:'50vh'}}>
                 <Card.Header style={{textAlign:'center', backgroundColor:'#51A3A3', color:"white"}}>Log In</Card.Header>
                 <Card.Body style={{}} className="d-flex flex-column">
