@@ -25,15 +25,15 @@ function SignUp(){
     function handleChange(e) {
         dispatch({
             key: e.target.classList[0],
-            value: e.target.value
+            defaultValue: e.target.defaultValue
           })
-          console.log(e.target.value)
     }
     
     const handleSubmit = (e) => {
         e.preventDefault()
         signupInfo.password === signupInfo.confirmPassword && getAll('POST', `/users/signup`, null, dispatch, signupInfo)
         navigate('/login')
+        console.log(signupInfo)
     }
 
     const handleFeet = (e) => {

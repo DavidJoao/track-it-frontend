@@ -11,16 +11,16 @@ export async function getAll(method, path, authToken, dispatch, body ) {
     switch(method){
     case 'GET':
         res = await axios.get(`http://localhost:8000${path}`, headers)
-        dispatch({
-            key:'response',
-            value: res.data
-        })
+            dispatch({
+                key:'response',
+                value: res.data
+            })
         break
 
 
     case 'PUT':
-    res = await axios.put(`http://localhost:8000${path}`, body, headers)
-    break
+        res = await axios.put(`http://localhost:8000${path}`, body, headers)
+        break
 
     case 'POST':
         res = await axios.post(`http://localhost:8000${path}`, body, headers)

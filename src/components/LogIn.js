@@ -20,6 +20,7 @@ function LogIn(){
     const handleSubmit = (e) => {
         e.preventDefault()
         getAll('POST', `/users/login`, null, dispatchUser, loginInfo)
+        console.log(loggedInUser)
     }
 
     useEffect(() => {
@@ -42,7 +43,7 @@ function LogIn(){
                             <Form.Label>Password</Form.Label>
                             <Form.Control onChange={handleChange} defaultValue={loginInfo.password} style={{border:'1px solid #51A3A3'}} type='password' placeholder='Password'></Form.Control>
                             <Form.Text>Don't share your password with anyone else.</Form.Text>
-                            <Button type='submit' style={{marginTop:'5%', backgroundColor:'#51A3A3', border:'1px solid #51A3A3'}}><Link style={{color:'white', textDecoration:'none'}} to="/">Log In</Link></Button>
+                            <Button type='submit' style={{marginTop:'5%', backgroundColor:'#51A3A3', border:'1px solid #51A3A3'}}><Link style={{color:'white', textDecoration:'none'}} to="/myprofile">Log In</Link></Button>
                         </FormGroup>
                     </Form>
                 </Card.Body>
