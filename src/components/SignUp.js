@@ -1,11 +1,11 @@
 import React, { useReducer, useState } from 'react'
-import { Card, Form, FormGroup, Button, Container, Dropdown } from 'react-bootstrap'
+import { Card, Form, div, Button, Container, Dropdown } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { axiosReducer, getAll } from '../functions/getAll'
 
 function SignUp(){
 
-    const initialState = {
+    let initialState = {
         username: '',
         password: '',
         confirmPassword: '',
@@ -16,8 +16,7 @@ function SignUp(){
         goal:'',
     }
 
-    
-    const [signupInfo, dispatch] = useReducer(axiosReducer, initialState)
+    let [signupInfo, dispatch] = useReducer(axiosReducer, initialState)
     const navigate = useNavigate()
     const [ feet, setFeet ] = useState('')
     const [ inches, setInches ] = useState('')
@@ -25,8 +24,9 @@ function SignUp(){
     function handleChange(e) {
         dispatch({
             key: e.target.classList[0],
-            defaultValue: e.target.defaultValue
+            value: e.target.value
           })
+          console.log(signupInfo)
     }
     
     const handleSubmit = (e) => {
@@ -46,6 +46,7 @@ function SignUp(){
         setInches(e)
     }
 
+
     return(
         <div style={{width:'auto', marginLeft:'5%', marginRight:'5%', height:'auto', padding:'2%'}}>
             <Card style={{border:'1px solid #51A3A3', height:'auto', width:'80%', margin:'0 auto'}} className="d-flex flex-column">
@@ -53,16 +54,16 @@ function SignUp(){
                 <div style={{padding:'2%'}}>
                     <Container className='d-flex flex-column flex-lg-row'>
                         <Container style={{width:'80%', height:'auto'}}>
-                            <Form action='' onSubmit={handleSubmit} style={{display:'flex', flexDirection:'column', justifyContent:'center', height:'auto'}}>
-                                <FormGroup style={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
-                                    <Form.Label>Username</Form.Label>
-                                    <Form.Control style={{border:'1px solid #51A3A3'}} type='text' placeholder='Ex. David123' onChange={handleChange} defaultValue={signupInfo.username}></Form.Control>
-                                    <Form.Label style={{marginTop:'2%'}}>Password</Form.Label>
-                                    <Form.Control defaultValue={signupInfo.password} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='password' placeholder='Password'></Form.Control>
-                                    <Form.Label style={{marginTop:'2%'}}>Confirm Password</Form.Label>
-                                    <Form.Control defaultValue={signupInfo.confirmPassword} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='password' placeholder='Password'></Form.Control>
-                                    <Form.Text>Don't share your password with anyone else.</Form.Text>
-                                    <Form.Label>Height</Form.Label>
+                            <form action='' onSubmit={handleSubmit} style={{display:'flex', flexDirection:'column', justifyContent:'center', height:'auto'}}>
+                                <div style={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
+                                    <label>Username</label>
+                                    <input style={{border:'1px solid #51A3A3'}} type='text' placeholder='Ex. David123' onChange={handleChange} value={signupInfo.username || "David"}></input>
+                                    <label style={{marginTop:'2%'}}>Password</label>
+                                    <input value={signupInfo.password.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='password' placeholder='Password'></input>
+                                    <label style={{marginTop:'2%'}}>Confirm Password</label>
+                                    <input value={signupInfo.confirmPassword.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='password' placeholder='Confirm Password'></input>
+                                    <p>Don't share your password with anyone else.</p>
+                                    <label>Height</label>
                                       <div style={{display:'flex', width:'100%'}}>
                                            <Dropdown defaultValue={signupInfo.feet} id='dropdown-basic' onSelect={handleFeet} style={{width:'50%', display:'flex', justifyContent:'center'}} >
                                             <Dropdown.Toggle style={{width:'90%', backgroundColor:'#51A3A3', border:'none'}}>
@@ -78,7 +79,7 @@ function SignUp(){
                                                 </Dropdown.Menu>
                                             </Dropdown>
 
-                                            <Dropdown defaultValue={signupInfo.inches} onSelect={handleInches} style={{width:'50%', display:'flex', justifyContent:'center'}}>
+                                            <Dropdown value={signupInfo.inches.value} onSelect={handleInches} style={{width:'50%', display:'flex', justifyContent:'center'}}>
                                                <Dropdown.Toggle style={{width:'90%', backgroundColor:'#51A3A3', border:'none'}}>
                                                     {inches || 'Inches'}
                                                 </Dropdown.Toggle>
@@ -99,16 +100,16 @@ function SignUp(){
                                             </Dropdown.Menu>
                                         </Dropdown >
                                     </div>
-                                    <Form.Text>Feet/Inches</Form.Text>
-                                    <Form.Label style={{marginTop:'2%'}}>Current Weight</Form.Label>
-                                    <Form.Control defaultValue={signupInfo.currentWeight} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='number' min="90" step="0.1" placeholder=''></Form.Control>
-                                    <Form.Text>In pounds (lbs) | You can use the arrows to control decimals </Form.Text>
-                                    <Form.Label style={{marginTop:'2%'}}>Weight Goal:</Form.Label>
-                                    <Form.Control defaultValue={signupInfo.goal} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='number' min="90" step="0.1" placeholder=''></Form.Control>
-                                    <Form.Text>All information will be used to keep track of your progress</Form.Text>
+                                    <p> Feet/Inches </p> 
+                                    <label style={{marginTop:'2%'}}>Current Weight</label>
+                                    <input value={signupInfo.currentWeight.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='number' min="90" step="0.1" placeholder=''></input>
+                                    <p> In pounds (lbs) | You can use the arrows to control decimals </p>
+                                    <label style={{marginTop:'2%'}}>Weight Goal:</label>
+                                    <input value={signupInfo.goal.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='number' min="90" step="0.1" placeholder=''></input>
+                                    <p> All information will be used to keep track of your progress </p>
                                         <Button type='submit' style={{width:'50%', border:'none', backgroundColor:'#51A3A3', margin:'5%', alignSelf:'center'}}>Sign Up</Button>
-                                </FormGroup>
-                            </Form>
+                                </div>
+                            </form>
                         </Container>
                     </Container>
                 </div>

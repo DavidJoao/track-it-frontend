@@ -2,24 +2,25 @@ import { Container, Nav, Offcanvas } from "react-bootstrap"
 import History from "../components/History"
 import { useState } from 'react'
 import BMICalculator from "../components/BMICalculator.js"
-import RandomTip from "../components/RandomTip"
  
 function MyProfile(){
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = () => {
+        setShow(true)
+        setQuote(quoteArray[random])
+    };
     const [view, setView ] = useState(History)
+    let quoteArray = ['random1','random2', 'random3', 'random4', 'random5', 'random6', 'random7']
+    const random = Math.floor(Math.random() * (quoteArray.length + 1))
+    const [quote, setQuote] = useState(quoteArray[0])
 
     const handleHistory = () => {
         setView(History)
     }
 
     const handleBMICalculator = () => {
-        setView(BMICalculator)
-    }
-
-    const handleRandomTip = () => {
-        setView(RandomTip)
+        setView(<BMICalculator />)
     }
 
     return(
@@ -41,8 +42,7 @@ function MyProfile(){
                                 <Offcanvas.Title>Offcanvas</Offcanvas.Title>
                                 </Offcanvas.Header>
                                 <Offcanvas.Body>
-                                Some text as placeholder. In real life you can have the elements you
-                                have chosen. Like, text, images, lists, etc.
+                                {quote}
                                 </Offcanvas.Body>
                             </Offcanvas>
                             </Nav.Item>

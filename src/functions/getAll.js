@@ -58,7 +58,8 @@ export function axiosReducer (state, object) {
         case 'token':
             return {...state, token: object.value}
         case 'loadProfile':
-            return {...state,
+            return {
+            ...state,
             username: object.value.username,
             initialWeight: object.value.initialWeight,
             currentWeight: object.value.currentWeight,
