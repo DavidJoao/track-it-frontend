@@ -57,13 +57,13 @@ function SignUp(){
                             <form action='' onSubmit={handleSubmit} style={{display:'flex', flexDirection:'column', justifyContent:'center', height:'auto'}}>
                                 <div style={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
                                     <label>Username</label>
-                                    <input style={{border:'1px solid #51A3A3'}} type='text' placeholder='Ex. David123' onChange={handleChange} value={signupInfo.username || "David"}></input>
+                                    <Form.Control style={{border:'1px solid #51A3A3'}} type='text' placeholder='Ex. David123' onChange={handleChange} value={signupInfo.username || "David"}></Form.Control>
                                     <label style={{marginTop:'2%'}}>Password</label>
-                                    <input value={signupInfo.password.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='password' placeholder='Password'></input>
+                                    <Form.Control value={signupInfo.password.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='password' placeholder='Password'></Form.Control>
                                     <label style={{marginTop:'2%'}}>Confirm Password</label>
-                                    <input value={signupInfo.confirmPassword.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='password' placeholder='Confirm Password'></input>
-                                    <p>Don't share your password with anyone else.</p>
-                                    <label>Height</label>
+                                    <Form.Control value={signupInfo.confirmPassword.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='password' placeholder='Confirm Password'></Form.Control>
+                                    <Form.Text>Don't share your password with anyone else.</Form.Text>
+                                    <label style={{marginTop:'2%'}}>Height</label>
                                       <div style={{display:'flex', width:'100%'}}>
                                            <Dropdown defaultValue={signupInfo.feet} id='dropdown-basic' onSelect={handleFeet} style={{width:'50%', display:'flex', justifyContent:'center'}} >
                                             <Dropdown.Toggle style={{width:'90%', backgroundColor:'#51A3A3', border:'none'}}>
@@ -100,13 +100,13 @@ function SignUp(){
                                             </Dropdown.Menu>
                                         </Dropdown >
                                     </div>
-                                    <p> Feet/Inches </p> 
+                                    <Form.Text> Feet/Inches </Form.Text> 
                                     <label style={{marginTop:'2%'}}>Current Weight</label>
-                                    <input value={signupInfo.currentWeight.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='number' min="90" step="0.1" placeholder=''></input>
-                                    <p> In pounds (lbs) | You can use the arrows to control decimals </p>
+                                    <Form.Control value={signupInfo.currentWeight.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='number' min="90" step="0.1" placeholder=''></Form.Control>
+                                    <Form.Text> In pounds (lbs) | You can use the arrows to control decimals </Form.Text>
                                     <label style={{marginTop:'2%'}}>Weight Goal:</label>
-                                    <input value={signupInfo.goal.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='number' min="90" step="0.1" placeholder=''></input>
-                                    <p> All information will be used to keep track of your progress </p>
+                                    <Form.Control value={signupInfo.goal.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='number' min="90" step="0.1" placeholder=''></Form.Control>
+                                    <Form.Text> All information will be used to keep track of your progress </Form.Text>
                                         <Button type='submit' style={{width:'50%', border:'none', backgroundColor:'#51A3A3', margin:'5%', alignSelf:'center'}}>Sign Up</Button>
                                 </div>
                             </form>

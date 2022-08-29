@@ -10,13 +10,13 @@ function MyProfile(){
         setShow(true)
         setQuote(quoteArray[random])
     };
-    const [view, setView ] = useState(History)
+    const [view, setView ] = useState(<History/>)
     let quoteArray = ['random1','random2', 'random3', 'random4', 'random5', 'random6', 'random7']
     const random = Math.floor(Math.random() * (quoteArray.length + 1))
     const [quote, setQuote] = useState(quoteArray[0])
 
     const handleHistory = () => {
-        setView(History)
+        setView(<History />)
     }
 
     const handleBMICalculator = () => {
