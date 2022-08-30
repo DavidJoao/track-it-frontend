@@ -39,7 +39,7 @@ function History(){
     },[])
 
     return(
-        <div style={{width:'95%', height:'auto', display:"flex", alignItems:'center', flexDirection:'column', padding:'2%', fontFamily:"'Nunito', sans-serif"}}>
+        <div className="fade-animation" style={{width:'95%', height:'auto', display:"flex", alignItems:'center', flexDirection:'column', padding:'2%', fontFamily:"'Nunito', sans-serif"}}>
             <h4 style={{border:'1px solid #51A3A3', padding:"1%", borderRadius:'10px'}}>Current Weight: {lastSeven.slice(-1)}</h4>
             <h4 style={{border:'1px solid #51A3A3', padding:"1%", borderRadius:'10px'}}>Weight History</h4>
             <div style={{border:'1px solid #51A3A3', height:'auto', width:'90%', padding:"2%", borderRadius:'10px'}}>

@@ -56,7 +56,7 @@ function MyProfile(){
     console.log(loggedInUser)
 
     return(
-        <div style={{width:'100%', height:'auto', display:"flex", flexDirection:"column", justifyContent:'center', alignItems:'center', fontFamily:"'Nunito', sans-serif"}}>
+        <div className="fade-animation" style={{width:'100%', height:'auto', display:"flex", flexDirection:"column", justifyContent:'center', alignItems:'center', fontFamily:"'Nunito', sans-serif"}}>
             {/* <h1 style={{marginTop:'5%'}}>Hello</h1> */}
             <Container style={{width:'85%', border:'5px solid #51A3A3', borderRadius:'10px', boxShadow:'-2px 7px 27px 0px rgba(0,0,0,0.75)'}}>
                     <Nav className="justify-content-center" activeKey="/home">

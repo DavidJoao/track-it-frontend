@@ -54,7 +54,7 @@ function SignUp(){
 
 
     return(
-        <div style={{width:'auto', marginLeft:'5%', marginRight:'5%', height:'auto', padding:'2%', fontFamily:"'Nunito', sans-serif"}}>
+        <div className='fade-animation' style={{width:'auto', marginLeft:'5%', marginRight:'5%', height:'auto', padding:'2%', fontFamily:"'Nunito', sans-serif"}}>
             <Card style={{border:'1px solid #51A3A3', height:'auto', width:'80%', margin:'0 auto'}} className="d-flex flex-column">
                 <Card.Header style={{textAlign:'center', backgroundColor:'#51A3A3', color:"white"}}>Sign Up</Card.Header>
                 <div style={{padding:'2%'}}>

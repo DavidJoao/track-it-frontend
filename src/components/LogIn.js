@@ -31,7 +31,7 @@ function LogIn(){
       },[loggedInUser.token])
 
     return(
-        <div style={{width:'100%', height:'100vh', display:'flex', justifyContent:'center', alignItems:'center', fontFamily:"'Nunito', sans-serif"}}>
+        <div className='fade-animation' style={{width:'100%', height:'100vh', display:'flex', justifyContent:'center', alignItems:'center', fontFamily:"'Nunito', sans-serif"}}>
             <Card style={{border:'1px solid #51A3A3', height:'50vh'}}>
                 <Card.Header style={{textAlign:'center', backgroundColor:'#51A3A3', color:"white"}}>Log In</Card.Header>
                 <Card.Body style={{}} className="d-flex flex-column">

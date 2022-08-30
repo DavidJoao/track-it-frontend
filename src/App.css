@@ -24,3 +24,13 @@
     transform: rotate(360deg);
   }
 }
+
+
+.fade-animation{  
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

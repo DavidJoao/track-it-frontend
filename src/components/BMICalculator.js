@@ -47,7 +47,7 @@ function BMICalculator(){
     }
 
     return(
-        <div style={{width:'95%', height:'90vh', fontFamily:"'Nunito', sans-serif"}} className="d-flex flex-column">
+        <div style={{width:'95%', height:'90vh', fontFamily:"'Nunito', sans-serif"}} className="fade-animation d-flex flex-column">
             <div style={{width:'100%', height:"100%", padding:'2%'}}>
                 <div style={{border:"1px solid #51A3A3", width:'100%', height:"50%", display:'flex', flexDirection:'column', justifyContent:'center', alignItems:"center", margin:"1%", borderRadius:"10px", boxShadow:' -2px 7px 40px -11px rgba(0,0,0,0.75)'}}>
                     <Form onSubmit={handleSubmit}>
