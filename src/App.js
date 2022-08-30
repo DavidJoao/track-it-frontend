@@ -1,4 +1,5 @@
 import './App.css';
+import './index.css'
 import Home from './pages/Home';
 import { createContext, useReducer } from 'react'
 import { axiosReducer } from './functions/getAll'

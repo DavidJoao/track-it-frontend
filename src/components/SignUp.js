@@ -37,18 +37,24 @@ function SignUp(){
     }
 
     const handleFeet = (e) => {
-        console.log(e)
         setFeet(e)
+        dispatch({
+            key: 'feet',
+            value: e
+          })
     }
 
     const handleInches = (e) => {
-        console.log(e)
         setInches(e)
+        dispatch({
+            key: 'inches',
+            value: e
+          })
     }
 
 
     return(
-        <div style={{width:'auto', marginLeft:'5%', marginRight:'5%', height:'auto', padding:'2%'}}>
+        <div style={{width:'auto', marginLeft:'5%', marginRight:'5%', height:'auto', padding:'2%', fontFamily:"'Nunito', sans-serif"}}>
             <Card style={{border:'1px solid #51A3A3', height:'auto', width:'80%', margin:'0 auto'}} className="d-flex flex-column">
                 <Card.Header style={{textAlign:'center', backgroundColor:'#51A3A3', color:"white"}}>Sign Up</Card.Header>
                 <div style={{padding:'2%'}}>
@@ -57,21 +63,21 @@ function SignUp(){
                             <form action='' onSubmit={handleSubmit} style={{display:'flex', flexDirection:'column', justifyContent:'center', height:'auto'}}>
                                 <div style={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
                                     <label>Username</label>
-                                    <Form.Control style={{border:'1px solid #51A3A3'}} type='text' placeholder='Ex. David123' onChange={handleChange} value={signupInfo.username || "David"}></Form.Control>
+                                    <Form.Control className='username' style={{border:'1px solid #51A3A3'}} type='text' placeholder='Ex. David123' onChange={handleChange} value={signupInfo.username}></Form.Control>
                                     <label style={{marginTop:'2%'}}>Password</label>
-                                    <Form.Control value={signupInfo.password.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='password' placeholder='Password'></Form.Control>
+                                    <Form.Control className='password' value={signupInfo.password.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='password' placeholder='Password'></Form.Control>
                                     <label style={{marginTop:'2%'}}>Confirm Password</label>
-                                    <Form.Control value={signupInfo.confirmPassword.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='password' placeholder='Confirm Password'></Form.Control>
+                                    <Form.Control className='confirmPassword' value={signupInfo.confirmPassword.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='password' placeholder='Confirm Password'></Form.Control>
                                     <Form.Text>Don't share your password with anyone else.</Form.Text>
                                     <label style={{marginTop:'2%'}}>Height</label>
                                       <div style={{display:'flex', width:'100%'}}>
-                                           <Dropdown defaultValue={signupInfo.feet} id='dropdown-basic' onSelect={handleFeet} style={{width:'50%', display:'flex', justifyContent:'center'}} >
+                                           <Dropdown className='feet' value={signupInfo.feet.value} id='dropdown-basic' onSelect={handleFeet} style={{width:'50%', display:'flex', justifyContent:'center'}} >
                                             <Dropdown.Toggle style={{width:'90%', backgroundColor:'#51A3A3', border:'none'}}>
                                                 {feet || 'Feet'}
                                             </Dropdown.Toggle>
 
                                                 <Dropdown.Menu>
-                                                    <Dropdown.Item eventKey='4' value="4">4</Dropdown.Item>
+                                                    <Dropdown.Item className='feet' eventKey='4' value="4">4</Dropdown.Item>
                                                     <Dropdown.Item eventKey='5' value='5'>5</Dropdown.Item>
                                                     <Dropdown.Item eventKey='6' value='6'>6</Dropdown.Item>
                                                     <Dropdown.Item eventKey='7' value='7'>7</Dropdown.Item>
@@ -79,13 +85,13 @@ function SignUp(){
                                                 </Dropdown.Menu>
                                             </Dropdown>
 
-                                            <Dropdown value={signupInfo.inches.value} onSelect={handleInches} style={{width:'50%', display:'flex', justifyContent:'center'}}>
+                                            <Dropdown className='inches' value={signupInfo.inches.value} onSelect={handleInches} style={{width:'50%', display:'flex', justifyContent:'center'}}>
                                                <Dropdown.Toggle style={{width:'90%', backgroundColor:'#51A3A3', border:'none'}}>
                                                     {inches || 'Inches'}
                                                 </Dropdown.Toggle>
 
                                              <Dropdown.Menu>
-                                                <Dropdown.Item eventKey='1' value='1'>1</Dropdown.Item>
+                                                <Dropdown.Item className='inches' eventKey='1' value='1'>1</Dropdown.Item>
                                                 <Dropdown.Item eventKey='2' value='2'>2</Dropdown.Item>
                                                 <Dropdown.Item eventKey='3' value='3'>3</Dropdown.Item>
                                                 <Dropdown.Item eventKey='4' value='4'>4</Dropdown.Item>
@@ -101,11 +107,11 @@ function SignUp(){
                                         </Dropdown >
                                     </div>
                                     <Form.Text> Feet/Inches </Form.Text> 
-                                    <label style={{marginTop:'2%'}}>Current Weight</label>
-                                    <Form.Control value={signupInfo.currentWeight.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='number' min="90" step="0.1" placeholder=''></Form.Control>
+                                    <label style={{marginTop:'2%'}}>Initial Weight</label>
+                                    <Form.Control className='initialWeight' value={signupInfo.initialWeight.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='number' min="90" step="0.1" placeholder=''></Form.Control>
                                     <Form.Text> In pounds (lbs) | You can use the arrows to control decimals </Form.Text>
                                     <label style={{marginTop:'2%'}}>Weight Goal:</label>
-                                    <Form.Control value={signupInfo.goal.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='number' min="90" step="0.1" placeholder=''></Form.Control>
+                                    <Form.Control className='goal' value={signupInfo.goal.value} onChange={handleChange} style={{border:'1px solid #51A3A3'}} type='number' min="90" step="0.1" placeholder=''></Form.Control>
                                     <Form.Text> All information will be used to keep track of your progress </Form.Text>
                                         <Button type='submit' style={{width:'50%', border:'none', backgroundColor:'#51A3A3', margin:'5%', alignSelf:'center'}}>Sign Up</Button>
                                 </div>

@@ -45,6 +45,8 @@ export function axiosReducer (state, object) {
             return {...state, username: object.value}
         case 'password':
             return {...state, password: object.value}
+        case 'confirmPassword':
+            return {...state, confirmPassword: object.value}
         case 'initialWeight':
             return {...state, initialWeight: object.value}
         case 'currentWeight':
