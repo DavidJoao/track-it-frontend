@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# README: Track It 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [Click here to visit my project!](https://)
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+### `Track-It`
 
-### `npm start`
+Web app created to keep track of your weight loss journey, users are allowed to calculate their body mass index, display a graph with their weight history, and get healthy tips that will help them during their journey.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `Technologies Used`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Front-end:
+ - JavaScript
+ - ReactJS
+ - ChartJS
+ - Bootstrap
 
-### `npm test`
+ Back-end:
+ - NodeJS
+ - ExpressJS/Mongoose
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ Database
+ - MongoDB
 
-### `npm run build`
+## Live Site Images
+### `Home page`
+![home](/assets/home.png)
+### `Sign Up/Log In`
+![signup](/assets/signup.png)
+![login](/assets/login.png)
+### `Weight History page`
+![myprofile](/assets/history.png)
+### `BMI Calculator`
+![calculator](/assets/calculator.png)
+### `Random health tips`
+![tips](/assets/tips.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `Wireframe for this project`
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Wireframes
 
-### `npm run eject`
+![wireframe1](/assets/whome.png)
+![wireframe2](/assets/wsignup.png)
+![wireframe3](/assets/wlogin.png)
+![wireframe4](/assets/whistory.png)
+![wireframe5](/assets/wcalculator.png)
+![wireframe6](/assets/wtip.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<br>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Bugs
+#### Still need to fix route that doesn't allow web app to retreive current user
