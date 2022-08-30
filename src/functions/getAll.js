@@ -1,16 +1,16 @@
 import axios from 'axios'
 
 export async function getAll(method, path, authToken, dispatch, body ) {
-    const headers = {
-        headers:{
-            'Authorization': `Bearer ${authToken}`
+    const headers = { 
+        headers: { 
+           'Authorization': `Bearer ${authToken}`,
         }
-    }
+     }
 
     let res
     switch(method){
     case 'GET':
-        res = await axios.get(`http://localhost:8000${path}`, headers)
+        res = await axios.get(`http://localhost:8000${path}`, headers, method)
             dispatch({
                 key:'response',
                 value: res.data

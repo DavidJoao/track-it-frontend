@@ -4,56 +4,47 @@ import { useState, useEffect, useReducer, useContext } from 'react'
 import BMICalculator from "../components/BMICalculator.js"
 import { getAll, axiosReducer } from '../functions/getAll'
 import { Context } from '../App' 
-import axios from "axios"
- 
+
+
 function MyProfile(){
-
     const { loggedInUser } = useContext(Context)
-
-    let initialState = {
-        username: '',
-        feet: '',
-        inches: '',
-        currentWeight:'',
-        initialWeight:'',
-        goal:'',
-    }
-
-    const [ userData, dispatch ] = useReducer(axiosReducer, initialState)
+    const [profile, dispatch] = useReducer(axiosReducer, loggedInUser)
     const [ reload, setReload ] = useState(true)
+    const [show, setShow] = useState(false);
+    const [view, setView ] = useState(<History/>)
+    let quoteArray = ['Eat a combination of different foods, including fruit, vegetables, legumes, nuts and whole grains. Adults should eat at least five portions (400g) of fruit and vegetables per day.','You can improve your intake of fruits and vegetables by always including veggies in your meal; eating fresh fruit and vegetables as snacks; eating a variety of fruits and vegetables; and eating them in season.', ' By eating healthy, you will reduce your risk of malnutrition and noncommunicable diseases (NCDs) such as diabetes, heart disease, stroke and cancer.', 'Fats consumed should be less than 30% of your total energy intake. This will help prevent unhealthy weight gain and NCDs. There are different types of fats, but unsaturated fats are preferable over saturated fats and trans-fats.', 'WHO recommends reducing saturated fats to less than 10% of total energy intake; reducing trans-fats to less than 1% of total energy intake; and replacing both saturated fats and trans-fats to unsaturated fats.', 'The preferable unsaturated fats are found in fish, avocado and nuts, and in sunflower, soybean, canola and olive oils; saturated fats are found in fatty meat, butter, palm and coconut oil, cream, cheese, ghee and lard', 'There is no safe level for drinking alcohol. Consuming alcohol can lead to health problems such as mental and behavioural disorders, including alcohol dependence, major NCDs such as liver cirrhosis, some cancers and heart diseases']
+    const [quote, setQuote] = useState(quoteArray[0])
 
+
+    
     useEffect(() => {
-        userData.response && dispatch({
+        profile.response && dispatch({
             key:'loadProfile',
             value:{
-                username: userData.response.username,
-                feet: userData.response.feet,
-                inches: userData.response.inches,
-                initialWeight: userData.response.initialWeight,
-                currentWeight: userData.response.currentWeight,
-                goal: userData.response.goal
+                username: profile.response.username,
+                feet: profile.response.feet,
+                inches: profile.response.inches,
+                initialWeight: profile.response.initialWeight,
+                currentWeight: profile.response.currentWeight,
+                goal: profile.response.goal
             }
         })
-    }, [userData.response])
-
+    }, [profile.response])
+    
     //////////
-
     useEffect(() => {
         getAll('GET', `/users/username/${loggedInUser.username}`, loggedInUser.token, dispatch)
     },[reload])
+    
     //
-
-    const [show, setShow] = useState(false);
+    
     const handleClose = () => setShow(false);
     const handleShow = () => {
         setShow(true)
         setQuote(quoteArray[random])
     };
-    const [view, setView ] = useState(<History/>)
-    let quoteArray = ['Eat a combination of different foods, including fruit, vegetables, legumes, nuts and whole grains. Adults should eat at least five portions (400g) of fruit and vegetables per day.','You can improve your intake of fruits and vegetables by always including veggies in your meal; eating fresh fruit and vegetables as snacks; eating a variety of fruits and vegetables; and eating them in season.', ' By eating healthy, you will reduce your risk of malnutrition and noncommunicable diseases (NCDs) such as diabetes, heart disease, stroke and cancer.', 'Fats consumed should be less than 30% of your total energy intake. This will help prevent unhealthy weight gain and NCDs. There are different types of fats, but unsaturated fats are preferable over saturated fats and trans-fats.', 'WHO recommends reducing saturated fats to less than 10% of total energy intake; reducing trans-fats to less than 1% of total energy intake; and replacing both saturated fats and trans-fats to unsaturated fats.', 'The preferable unsaturated fats are found in fish, avocado and nuts, and in sunflower, soybean, canola and olive oils; saturated fats are found in fatty meat, butter, palm and coconut oil, cream, cheese, ghee and lard', 'There is no safe level for drinking alcohol. Consuming alcohol can lead to health problems such as mental and behavioural disorders, including alcohol dependence, major NCDs such as liver cirrhosis, some cancers and heart diseases']
-    const random = Math.floor(Math.random() * (quoteArray.length + 1))
-    const [quote, setQuote] = useState(quoteArray[0])
-
+    const random = Math.floor(Math.random() * ((quoteArray.length-1) + 1))
+    
     const handleHistory = () => {
         setView(<History />)
     }

@@ -1,11 +1,15 @@
 import { Form, Button } from "react-bootstrap"
 import { Line } from 'react-chartjs-2'
 import { Chart as ChartJS} from 'chart.js/auto'
-import { useState } from "react"
+import { getAll, axiosReducer } from '../functions/getAll'
+import { Context } from '../App' 
+import { useState, useEffect, useReducer, useContext } from 'react'
 
 
 function History(){
     let [input, setInput] = useState('')
+    const { loggedInUser } = useContext(Context)
+    const [profile, dispatch] = useReducer(axiosReducer, loggedInUser)
     const weightArr = []
     const [weightExample, setWeightExample] = useState([])
     const lastSeven = weightExample.slice(-7)
@@ -29,6 +33,10 @@ function History(){
         let value = e.target.value
         setInput(value)
     }
+
+    useEffect(() => {
+        getAll('GET', `/users/username/${loggedInUser.username}`, loggedInUser.token, dispatch)
+    },[])
 
     return(
         <div style={{width:'95%', height:'auto', display:"flex", alignItems:'center', flexDirection:'column', padding:'2%', fontFamily:"'Nunito', sans-serif"}}>

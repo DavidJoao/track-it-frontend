@@ -16,22 +16,19 @@ function LogIn(){
             key: e.target.classList[0],
             value: e.target.value
         })
-        console.log(loginInfo)
     } 
 
     const handleSubmit = (e) => {
         e.preventDefault()
         getAll('POST', `/users/login`, null, dispatchUser, loginInfo)
-        console.log(loginInfo)
+        dispatchUser({ key: 'username', value: loginInfo.username })
+        navigate('/myprofile')
     }
 
     useEffect(() => {
-        dispatchUser({
-            key:'username',
-            value:loginInfo.username
-        })
+        dispatchUser({ key: 'username', value: loginInfo.username })
         loggedInUser.token && navigate('/myprofile')
-    }, [loggedInUser.token])
+      },[loggedInUser.token])
 
     return(
         <div style={{width:'100%', height:'100vh', display:'flex', justifyContent:'center', alignItems:'center', fontFamily:"'Nunito', sans-serif"}}>
